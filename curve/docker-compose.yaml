@@ -1,0 +1,13 @@
+services:
+  backend:
+    container_name: backend
+    build: Backend
+    volumes:
+      - ./Backend/Source:/Project/Source
+    ports:
+      - "8001:8000"
+    networks:
+      - default
+
+networks:
+  default:
