@@ -6,7 +6,7 @@ services:
       - ./Frontend:/Frontend_Container
       - ./Frontend/Services/nginx/logs:/var/log/nginx
     ports:
-      - "80:8080"
+      - "8001:8080"
     networks:
       - default
   backend:

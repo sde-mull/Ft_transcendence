@@ -20,6 +20,7 @@ def ReturnGuide():
 def ExecuteTask(Command):
     if(Command == "build"):
         os.system("docker-compose -f docker-compose.yaml up -d --build")
+        print("The server is running on localhost:8001")
     elif(Command == "stop"):
         os.system("docker-compose stop")
     elif(Command == "down"):
