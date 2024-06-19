@@ -1,6 +1,3 @@
-// router.js
-
-// Function to update content based on route
 const updateContent = (path) => {
     const content = document.getElementById('Content');
     switch (path) {
@@ -25,7 +22,6 @@ const updateContent = (path) => {
     }
 };
 
-// Function to handle navigation events
 const handleNavigation = (event) => {
     event.preventDefault();
     const path = event.target.getAttribute('href');
@@ -33,15 +29,13 @@ const handleNavigation = (event) => {
     updateContent(path);
 };
 
-// Add event listeners to all links with data-link attribute
 document.querySelectorAll('.nav').forEach(link => {
     link.addEventListener('click', handleNavigation);
 });
 
-// Handle browser navigation (back/forward)
+
 window.addEventListener('popstate', () => {
     updateContent(window.location.pathname);
 });
 
-// Initial content update based on current path
 updateContent(window.location.pathname);
