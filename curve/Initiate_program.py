@@ -1,4 +1,4 @@
-import os, sys, argparse
+import os, sys
 
 class Args:
     def __init__(self):
@@ -9,13 +9,32 @@ class Args:
     def getArgc(self):
         return self.argc
 
+def ReturnGuide():
+    print("What can i do for you?", end="\n")
+    print("-> Python3 initiate_program.py build => This command will build the docker-compose file and start the containers", end="\n")
+    print("-> Python3 initiate_program.py down => This command will stop,remove all containers and images", end="\n")
+    print("-> Python3 initiate_program.py restart => This command will restart all the running containers", end="\n")
+    print("-> Python3 initiate_program.py stop => This command will stop all the running containers", end="\n")
+
+
+def ExecuteTask(Command):
+    if(Command == "build"):
+        os.system("docker-compose -f docker-compose.yaml up -d --build")
+    elif(Command == "stop"):
+        os.system("docker-compose stop")
+    elif(Command == "down"):
+        os.system("docker-compose down --rmi 'local'")
+    elif(Command == "restart"):
+        os.system("docker-compose -f docker-compose.yaml restart")
+    else:
+        print("No match for this command")
 
 
 def main(args: Args):
-    if(args.getArgv()[1] == "start"):
-        os.system("docker-compose -f docker-compose.yaml up -d --build")
-    if(args.getArgv()[1] == "stop"):
-        os.system("docker-compose -f docker-compose.yaml down")
+    if (args.getArgv()[1] == "--help"):
+        ReturnGuide()
+    else:
+        ExecuteTask(args.getArgv()[1])
     
     
 if __name__ == "__main__":

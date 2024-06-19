@@ -1,11 +1,21 @@
 services:
+  frontend:
+    container_name: frontend
+    build: Frontend
+    volumes: 
+      - ./Frontend:/Frontend_Container
+      - ./Frontend/Services/nginx/logs:/var/log/nginx
+    ports:
+      - "80:8080"
+    networks:
+      - default
   backend:
     container_name: backend
     build: Backend
     volumes:
-      - ./Backend/Source:/Project/Source
+      - ./Backend/:/Project/
     ports:
-      - "8001:8000"
+      - "4444:4444" #Temporary, to test some things in the future
     networks:
       - default
 

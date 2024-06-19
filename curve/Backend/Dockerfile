@@ -8,12 +8,13 @@ RUN pip install --upgrade pip
 
 COPY . /Project
 
-WORKDIR /Project/Services
+RUN pip install -r Project/Packages/requirements.txt
 
-RUN pip install -r requirements.txt
+WORKDIR /Project/Tools
 
-WORKDIR /Project/Services
+RUN chmod +x /Project/Tools/run_django_app.sh
 
-RUN chmod +x create_django_app.sh
+#Temporary to test some things for the future
+EXPOSE 4444 
 
-ENTRYPOINT [ "./create_django_app.sh" ]
+ENTRYPOINT ["/bin/bash", "/Project/Tools/run_django_app.sh"]
