@@ -1,24 +1,21 @@
-const updateContent = (path) => {
-    const content = document.getElementById('Content');
-    switch (path) {
-        case '/':
-            Content.innerHTML = '<h1>Home Page</h1><p>Welcome to the home page!</p>';
-            break;
-        case '/About':
-            Content.innerHTML = '<h1>About Page</h1><p>Learn more about us.</p>';
-            break;
-        case '/LogIn':
-            Content.innerHTML = '<h1>Login Page</h1><p>Please log in to continue.</p>';
-            break;
-        case '/SignIn':
-            Content.innerHTML = '<h1>Sign In Page</h1><p>Create an account to proceed.</p>';
-            break;
-        case '/Settings':
-            Content.innerHTML = '<h1>Settings Page</h1><p>Manage your account settings.</p>';
-            break;
-        default:
-            Content.innerHTML = '<h1>404 Not Found</h1><p>Sorry, the page you requested does not exist.</p>';
-            break;
+const pathToModuleMap = {
+    '/': './Content/Home.js',
+    '/About': './Content/About.js',
+    '/LogIn': './Content/LogIn.js',
+    '/SignUp': './Content/SignUp.js',
+    '/Settings': './Content/Settings.js'
+};
+
+const updateContent = async (path) => {
+    try {
+        console.log(path);
+        const modulePath = pathToModuleMap[path] || './Content/404.js';
+        const module = await import(modulePath);
+        module.loadContent();
+    } catch (error) {
+        console.error("Error loading content:", error);
+        const content = document.getElementsByClassName('Content')[0];
+        content.innerHTML = '<h1>Error</h1><p>There was an error loading the content.</p>';
     }
 };
 
@@ -29,10 +26,13 @@ const handleNavigation = (event) => {
     updateContent(path);
 };
 
-document.querySelectorAll('.nav').forEach(link => {
+document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', handleNavigation);
 });
 
+document.querySelectorAll('.Logo').forEach(link => {
+    link.addEventListener('click', handleNavigation);
+});
 
 window.addEventListener('popstate', () => {
     updateContent(window.location.pathname);
