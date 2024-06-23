@@ -16,29 +16,21 @@ function toggleHeader() {
 	var header = document.getElementById('header');
 	var button = document.getElementById('toggleHeader');
 	
-	if (header.style.display === 'none' || header.offsetHeight === 0) {
-		// Store and restore original height of the header
-		var originalHeight = header.getAttribute('data-original-height') || '80px'; // Default to initial height
+	if (header.style.display === 'none') {
 		
-		header.style.height = originalHeight; // Restore original height
-		 // Show the header
-		button.style.top = '60px'; // Move button to original position
-		button.innerHTML = '&#9650;'; // Up arrow
-		setTimeout(function() {
-			header.style.display = 'flex'; // Hide the header after animation
-		}, 250);
+		header.style.display = 'flex';
+		header.style.height = '80px';
+		button.style.top = '55px';
+		button.innerHTML = '&#9650;';
 	} else {
-		// Store original height before hiding
-		header.setAttribute('data-original-height', header.offsetHeight + 'px');
 		
-		header.style.height = '0px'; // Reduce header height to 0
-		button.style.top = '0px'; // Move button up (if needed)
-		button.innerHTML = '&#9660;'; // Down arrow
+		header.style.height = '0px';
+		button.style.top = '-4px';
+		button.innerHTML = '&#9660;';
 		
-		// After the transition is complete, hide the header
 		setTimeout(function() {
-			header.style.display = 'none'; // Hide the header after animation
-		}, 250); // Adjust timing to match CSS transition duration
+			header.style.display = 'none';
+		}, 200);
 	}
 }
 						
