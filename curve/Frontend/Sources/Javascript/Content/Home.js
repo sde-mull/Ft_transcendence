@@ -10,7 +10,24 @@ export const loadContent = () => {
                                     This is our transcendence project. <br>We bring up 2 games, one you already know its pong \
                                     but the other one maybe you never heard about it... The name of the second game is curvefever.<br> \
                                     In our case for the second game we did some adaptations soooo the real name for this game will be curvealho 💀<br> \
-                                    I hope you stay and enjoy the project!! \
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
+                                    I hope you stay and enjoy the project!! <br>\
                                     Thank you for comming!\
                                 </p> \
                             </section> \

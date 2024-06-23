@@ -29,6 +29,11 @@ header{
 	z-index: 5;
 	background-color: rgb(17, 17, 17);
 	transition: height 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+header:hover{
+	box-shadow: 0 10px 20px -10px rgb(147, 15, 134);
 }
 
 .Logo{
@@ -114,6 +119,16 @@ header{
 	width: 40%;
 	height: 350px;
 	overflow:scroll;
+	box-shadow: 0 0 15px rgba(33, 177, 255, 0.834);
+	transition: all ease 0.5s;
+}
+
+.Box_content:hover{
+	width: 40%;
+	height: 350px;
+	overflow:scroll;
+	transform: translateY(-5px);
+	box-shadow: 0 0 30px rgb(147, 15, 134);
 }
 
 .Home_image{
