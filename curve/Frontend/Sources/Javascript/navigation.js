@@ -1,7 +1,7 @@
 const navigation = document.getElementsByClassName('Navigation')[0];
 
 navigation.innerHTML = '<header id="header"> \
-            				<h2 class="Logo" href="/"> Ft_transcendence </h2> \
+            				<h2 class="Logo" href="/"> Transcendence </h2> \
 							<nav class="menu"> \
 								<a href="/" class="nav__link">Home</a> \
 								<a href="/About" class="nav__link">About</a> \
