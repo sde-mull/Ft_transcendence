@@ -5,7 +5,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
+
+.Login.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .Login_box{
 	width: 50%;
@@ -13,10 +22,11 @@
 	border-radius: 75px;
 	background: rgb(17, 17, 17);
 	box-shadow: 0 0 30px rgba(33, 177, 255, 0.834);
-	background: rgba(17, 17, 17, 0.9); 
-	transition: all 0.5s ease;
+	background: rgba(17, 17, 17, 0.8); 
 	margin-left: 50px;
 	overflow: auto;
+	backdrop-filter: blur(10px);
+	transition: all 0.5s ease, backdrop-filter 2s ease;
 }
 
 .Login_box:hover{
