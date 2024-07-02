@@ -1,0 +1,140 @@
+.Login {
+	color: white;
+	width: 100%;
+	height: 800px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.Login.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.Login_box{
+	width: 50%;
+	height: 85%;
+	border-radius: 75px;
+	background: rgb(17, 17, 17);
+	box-shadow: 0 0 30px rgba(33, 177, 255, 0.834);
+	background: rgba(17, 17, 17, 0.8); 
+	margin-left: 50px;
+	overflow: auto;
+	backdrop-filter: blur(10px);
+	transition: all 0.5s ease, backdrop-filter 2s ease;
+}
+
+.Login_box:hover{
+	box-shadow: 0 0 40px rgb(147, 15, 134);
+}
+
+#LoginTitleContainer {
+    width: 100%;
+    height: 5vh;
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Login_Title {
+    font-size: 5vh;
+    font-weight: bold;
+    color: white;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.Credentials_container {
+	width: 45vw;
+	height: 50%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-left: 2vw;
+}
+
+#Loginform{
+	top: 50%;
+	left: 50%;
+	width: 25vw;
+	height: 25vh;
+	margin-top: 70px;
+}
+
+#Loginform .Credentials input {
+
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+}
+
+
+@keyframes button_animation {
+    0% {
+        background: rgba(33, 177, 255, 0.834);
+        opacity: 0.5;
+    }
+    25% {
+        background: rgba(33, 177, 255, 0.834);
+        opacity: 1;
+    }
+    50% {
+        background: rgb(147, 15, 134); 
+        opacity: 0.5;
+    }
+    75% {
+        background: rgb(147, 15, 134); 
+        opacity: 1;
+    }
+    100% {
+        background: rgba(33, 177, 255, 0.834);
+        opacity: 0.5;
+    }
+}
+
+
+#Loginform button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    background: rgba(33, 177, 255, 0.834);
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    border: none;
+	cursor: pointer;
+	width: 7vw;
+	height: 7vh;
+	font-size: large;
+	background: linear-gradient(transparent, rgb(147, 15, 134));
+    animation: button_animation 10s linear infinite;
+}
+
+#Loginform button:hover {
+    background: rgb(147, 15, 134);
+	box-shadow: 0 0 5px rgba(33, 177, 255, 0.834),
+              0 0 25px rgb(147, 15, 134),
+              0 0 50px rgba(33, 177, 255, 0.834),
+              0 0 100px rgb(147, 15, 134);
+}
+
+.Submit {
+	width: 25vw;
+	height: 10vh;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}

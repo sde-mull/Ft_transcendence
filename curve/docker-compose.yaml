@@ -1,0 +1,23 @@
+services:
+  frontend:
+    container_name: frontend
+    build: Frontend
+    volumes: 
+      - ./Frontend:/Frontend_Container
+    ports:
+      - "8001:8080"
+    networks:
+      - default
+  backend:
+    container_name: backend
+    build: Backend
+    volumes:
+      - ./Backend/:/Project/
+    ports:
+      - "4444:4444" #Temporary, to test some things in the future
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
