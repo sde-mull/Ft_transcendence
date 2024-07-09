@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   frontend:
     container_name: frontend
@@ -8,13 +10,45 @@ services:
       - "8001:8080"
     networks:
       - default
+
   backend:
     container_name: backend
     build: Backend
     volumes:
       - ./Backend/:/Project/
     ports:
-      - "4444:4444" #Temporary, to test some things in the future
+      - "4444:4444" # Temporary, to test some things in the future
+    networks:
+      - default
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=mysecretpassword
+      - DATABASE_NAME=yourdbname
+
+  db:
+    container_name: postgres
+    image: postgres:17beta2-bullseye
+    volumes:
+      - ./Database/Data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=yourdbname
+    networks:
+      - default
+
+  pgadmin:
+    container_name: pgadmin-container
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=sde.mull.dev@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=Pandora123
     networks:
       - default
 
