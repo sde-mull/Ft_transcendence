@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   frontend:
     container_name: frontend
@@ -25,7 +23,7 @@ services:
       - DATABASE_PORT=5432
       - DATABASE_USER=postgres
       - DATABASE_PASSWORD=mysecretpassword
-      - DATABASE_NAME=yourdbname
+      - DATABASE_NAME=Curvedb
 
   db:
     container_name: postgres
@@ -37,7 +35,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=yourdbname
+      - POSTGRES_DB=Curvedb
     networks:
       - default
 
