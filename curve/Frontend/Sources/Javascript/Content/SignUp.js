@@ -13,7 +13,7 @@ export const loadContent = () => {
 };
 
 //To handle the information we get from the user submission
-const handleFormSubmission = (event) => {
+const handleFormSubmission = async (event) => {
     event.preventDefault();
 
     const username = document.getElementById('username').value;
@@ -21,10 +21,30 @@ const handleFormSubmission = (event) => {
     const password1 = document.getElementById('password1').value;
     const password2 = document.getElementById('password2').value;
 
-    console.log('Username:', username);
-    console.log('Username:', email);
-    console.log('Password:', password1);
-    console.log('Password:', password2);
+    try {
+        const response = await fetch('/api/signup/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password1
+            })
+        });
+    
+        const data = await response.json();
+        if (response.ok) {
+            window.location.href = '/LogIn';
+        } else {
+            document.getElementById('error-message').innerText = data.message;
+        }
+    } catch (error) {
+        console.error('Error during sign up:', error);
+    }
+    
 };
 
 //To write the html page

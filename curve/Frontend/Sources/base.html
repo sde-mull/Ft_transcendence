@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/Media/Favicon/favicon.ico">
-    <link href="./Css/Navigation.css" rel="stylesheet">
-    <link href="./Css/Home.css" rel="stylesheet">
-    <link href="./Css/Background.css" rel="stylesheet">
-    <link href="./Css/Login.css" rel="stylesheet">
+    <link href="/Css/Navigation.css" rel="stylesheet">
+    <link href="/Css/Home.css" rel="stylesheet">
+    <link href="/Css/Background.css" rel="stylesheet">
+    <link href="/Css/Login.css" rel="stylesheet">
     <title id="tab_title"> </title>
 </head>
 <body>
@@ -17,7 +17,9 @@
     <div class="Content">  
         <!--- Calls router.js to call the right function to generate the html page-->
     </div>
-    <script src="Javascript/navigation.js"></script>
-    <script src="Javascript/router.js"></script>
+    <script type="module" src="/Javascript/Tools/Authentication_utils.js"></script>
+    <script type="module" src="/Javascript/Content.js"></script>
+    <script type="module" src="/Javascript/navigation.js"></script>
+    <script type="module" src="/Javascript/router.js"></script>
 </body>
 </html>

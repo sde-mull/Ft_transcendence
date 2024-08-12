@@ -4,6 +4,7 @@ services:
     build: Frontend
     volumes: 
       - ./Frontend:/Frontend_Container
+      - ./Frontend/Services/logs:/var/log/nginx
     ports:
       - "8001:8080"
     networks:
@@ -14,8 +15,6 @@ services:
     build: Backend
     volumes:
       - ./Backend/:/Project/
-    ports:
-      - "4444:4444" # Temporary, to test some things in the future
     networks:
       - default
     environment:

@@ -25,7 +25,7 @@ WORKDIR /Project/Tools
 RUN chmod +x /Project/Tools/run_django_app.sh
 
 # Expose port 4444
-EXPOSE 4444 
+EXPOSE 4444
 
 # Set the entry point to the run script
 ENTRYPOINT ["/bin/bash", "/Project/Tools/run_django_app.sh"]

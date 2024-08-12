@@ -1,41 +1,35 @@
-const pathToModuleMap = {
-    '/': './Content/Home.js',
-    '/About': './Content/About.js',
-    '/LogIn': './Content/LogIn.js',
-    '/SignUp': './Content/SignUp.js',
-    '/Settings': './Content/Settings.js'
-};
+import { updateNavigation } from './navigation.js';
+import { updateContent } from './Content.js';
+import { LogoutProc } from './Tools/Logout.js';
+import { attachEventListener } from './Tools/CreateEventListeners.js';
 
-const updateContent = async (path) => {
-    try {
-        console.log(path);
-        const modulePath = pathToModuleMap[path] || './Content/404.js';
-        const module = await import(modulePath);
-        module.loadContent();
-    } catch (error) {
-        console.error("Error loading content:", error);
-        const content = document.getElementsByClassName('Content')[0];
-        content.innerHTML = '<h1>Error</h1><p>There was an error loading the content.</p>';
+export const handleNavigation = (event) => {
+    event.preventDefault();
+    const path = event.target.getAttribute('href');
+    if (path) {
+        history.pushState({}, '', path);
+        updateContent(path);
     }
 };
 
-const handleNavigation = (event) => {
-    event.preventDefault();
-    const path = event.target.getAttribute('href');
-    history.pushState({}, '', path);
-    updateContent(path);
+const attachNavigationListeners = () => {
+        attachEventListener('Class', 'nav__link', 'click', handleNavigation);
+        attachEventListener('Query', '.Logo', 'click', handleNavigation);
+        attachEventListener('Id', 'Logout', 'click', LogoutProc);
 };
-
-document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', handleNavigation);
-});
-
-document.querySelectorAll('.Logo').forEach(link => {
-    link.addEventListener('click', handleNavigation);
-});
 
 window.addEventListener('popstate', () => {
     updateContent(window.location.pathname);
 });
 
-updateContent(window.location.pathname);
+export const initializePage = async (path = "/") => {
+    await updateNavigation();
+    updateContent(path);
+    attachNavigationListeners();
+    history.pushState({}, '', path);
+};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializePage(window.location.pathname);
+});

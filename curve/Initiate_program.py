@@ -19,14 +19,14 @@ def ReturnGuide():
 
 def ExecuteTask(Command):
     if(Command == "build"):
-        os.system("docker-compose -f docker-compose.yaml up -d --build")
+        os.system("docker compose -f docker-compose.yaml up -d --build")
         print("The server is running on localhost:8001")
     elif(Command == "stop"):
-        os.system("docker-compose stop")
+        os.system("docker compose stop")
     elif(Command == "down"):
-        os.system("docker-compose down --rmi 'local'")
+        os.system("docker compose down --rmi 'local'")
     elif(Command == "restart"):
-        os.system("docker-compose -f docker-compose.yaml restart")
+        os.system("docker compose -f docker-compose.yaml restart")
     else:
         print("No match for this command")
 

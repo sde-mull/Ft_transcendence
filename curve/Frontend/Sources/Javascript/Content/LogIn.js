@@ -1,5 +1,9 @@
+
+import { initializePage } from '../router.js';
+
 //Executes this code when we get the Login Path
 export const loadContent = () => {
+    
     WritePage();
 
     setTimeout(() => {
@@ -21,27 +25,26 @@ const handleFormSubmission = async (event) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:4444/api/login/', {
+        const response = await fetch('/api/login/', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             },
-            body: new URLSearchParams({
+            credentials: 'include',
+            body: JSON.stringify({
                 username: username,
                 password: password
             })
         });
-
+    
         const data = await response.json();
         if (response.ok) {
-            console.log('Login successful:', data);
-        } else {
-            console.log('Login failed:', data);
-            document.getElementById('error-message').innerText = data.message;
+            initializePage();   
         }
     } catch (error) {
         console.error('Error during login:', error);
     }
+    
 };
 
 //To write the html page
