@@ -20,6 +20,8 @@ def ReturnGuide():
 def ExecuteTask(Command):
     if(Command == "build"):
         os.system("docker compose -f docker-compose.yaml up -d --build")
+        os.system("docker-compose -f docker-compose.yaml exec backend /bin/sh -c 'cd /Project/Server && python3 manage.py migrate'")
+        os.system("chmod 777 Database/Data")
         print("The server is running on localhost:8001")
     elif(Command == "stop"):
         os.system("docker compose stop")
