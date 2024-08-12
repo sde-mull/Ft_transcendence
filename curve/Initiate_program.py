@@ -1,4 +1,5 @@
 import os, sys
+import time
 
 class Args:
     def __init__(self):
@@ -20,6 +21,7 @@ def ReturnGuide():
 def ExecuteTask(Command):
     if(Command == "build"):
         os.system("docker compose -f docker-compose.yaml up -d --build")
+        time.sleep(2)
         os.system("docker exec backend /bin/sh -c 'cd /Project/Server && python3 manage.py migrate'")
         os.system("chmod 777 Database/Data")
         print("The server is running on localhost:8001")
