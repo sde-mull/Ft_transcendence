@@ -53,7 +53,7 @@ function WritePage() {
     title.innerHTML = 'Ft_Transcendence | Sign Up';
 
     const content = document.getElementsByClassName('Content')[0];
-    content.innerHTML = `<div class="Login  fade-in">
+    content.innerHTML = `<div class="Login fade-in">
                             <div class="Login_box"> 
                                 <div id="LoginTitleContainer">
                                     <h1 id="Login_Title" > Register to Transcendence </h1> 
