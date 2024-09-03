@@ -1,6 +1,8 @@
-FROM nginx:latest
+FROM owasp/modsecurity-crs:nginx
 
-RUN apt-get update -y
+USER root
+
+RUN apt update && apt upgrade -y
 
 COPY . /Frontend_Container
 
